@@ -1,35 +1,49 @@
 import java.util.*;
-public class employee
-{  
- 
-    public int sid;   
-    String sname;    
-    long sno;   
-    String sdes;
-    String sdep;
-  
-    public employee(int record_id,String name,long phone_no,String designation,String department)  
-    {  
-         sid=record_id; 
-        sname = name; 
-        sno = phone_no;
-      sdes = designation;  
-      sdep = department;  
-    }  
-    public void printemploy()  
-    {  
-        System.out.println("Employee id: " + sid );  
-        System.out.println("Employee name: " + sname);   
-        System.out.println("Employee no: " + sno);  
-        System.out.println("Employee Designation: " + sdes);  
-        System.out.println("Employee Department: " + sdep);     
-    }  
-  
-
-    public static void main(String args[])  
-    {  
-        employee s = new employee(1,"manu",9876566780L,"manager","sales");  
- 
-        s.printemploy();  
-    }  
-}  
+class Employee
+{
+int eno;
+String ename;
+int esalary;
+Scanner sc=new Scanner(System.in);
+void getdetails()
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("enter eno");
+this.eno=sc.nextInt();
+System.out.println("enter ename");
+this.ename=sc.next();
+System.out.println("enter esalary");
+this.esalary=sc.nextInt();
+}
+void display()
+{
+System.out.println("Employee no:"+this.eno);
+System.out.println("Employee name:"+this.ename);
+System.out.println("Employee Salary:"+this.esalary);
+}
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+Employee[] a1=new Employee[5];
+int f=0;
+for(int i=0;i<5;i++)
+{
+a1[i]=new Employee();
+a1[i].getdetails();
+}
+System.out.println("enter id to be searched");
+int id=sc.nextInt();
+for(int i=0;i<5;i++)
+{
+if(id==a1[i].eno)
+{
+a1[i].display();
+break;
+}
+else
+f++;
+}
+if(f!=0)
+System.out.println("no match is found");
+}
+}
